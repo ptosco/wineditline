@@ -45,6 +45,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 these defines may be changed
 */
 #define DEFAULT_HISTORY_SIZE    200  /* default number of history entries */
+#define RL_READLINE_VERSION    0x0202  /* 0xMMmm where MM is major version, mm minor version */
 
 typedef char **rl_completion_func_t(const char *, int, int);
 typedef char *rl_compentry_func_t(const char *, int);
@@ -104,11 +105,14 @@ extern variables
 extern char *rl_line_buffer;
 extern char *rl_prompt;
 extern int rl_point;
+extern int rl_end;
 extern int rl_attempted_completion_over;
 extern int rl_completion_append_character;
+extern int rl_readline_version;
 extern const char rl_basic_word_break_characters[];
 extern const char *rl_completer_word_break_characters;
 extern const char *rl_readline_name;
+extern const char *rl_library_version;
 extern rl_completion_func_t *rl_attempted_completion_function;
 extern rl_compentry_func_t *rl_completion_entry_function;
 extern rl_compentryfree_func_t *rl_user_completion_entry_free_function;

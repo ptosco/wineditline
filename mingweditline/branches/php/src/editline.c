@@ -282,6 +282,7 @@ int _el_insert_char(wchar_t *buf, int n)
   set the new logical cursor position
   */
   rl_point += n;
+  rl_end = (int)wcslen(_el_line_buffer);
   /*
   print the insertion
   */
@@ -327,7 +328,6 @@ int _el_delete_char(UINT32 vk, int n)
     if ((line_len - rl_point) < n) {
       eff_n = line_len - rl_point;
     }
-
     break;
     
     case VK_BACK:
@@ -365,6 +365,7 @@ int _el_delete_char(UINT32 vk, int n)
   memmove(&_el_line_buffer[rl_point],
     &_el_line_buffer[rl_point + eff_n],
     (c - eff_n) * sizeof(wchar_t));
+  rl_end = (int)wcslen(_el_line_buffer);
   /*
   copy the characters from the current cursor
   position to end of line in a string
@@ -942,6 +943,7 @@ char *readline(const char *prompt)
   _el_compl_array = NULL;
   _el_completer_word_break_characters = NULL;
   rl_point = 0;
+  rl_end = 0;
   rl_attempted_completion_over = 0;
   _el_compl_index = 0;
   _el_n_compl = 0;
