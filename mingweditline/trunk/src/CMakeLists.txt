@@ -21,8 +21,8 @@ install (FILES editline/readline.h
   DESTINATION "${CMAKE_SOURCE_DIR}/include/editline")
 string(TOUPPER "${CMAKE_BUILD_TYPE}" uppercase_CMAKE_BUILD_TYPE)
 if (MSVC AND uppercase_CMAKE_BUILD_TYPE MATCHES "DEBUG")
-  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/edit_static.dir/edit_static.pdb
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/Debug/edit_static.pdb
     DESTINATION "${CMAKE_SOURCE_DIR}/lib${LIB_SUFFIX}")
-  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/edit.pdb
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/Debug/edit.pdb
     DESTINATION "${CMAKE_SOURCE_DIR}/bin${LIB_SUFFIX}")
 endif()
