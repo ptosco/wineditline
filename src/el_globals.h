@@ -40,6 +40,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define UNICODE
 
 const char *rl_readline_name = NULL;
+const char *rl_library_version = "2.207";
 wchar_t *_el_print = NULL;
 wchar_t *_el_temp_print = NULL;
 size_t _el_temp_print_size = 0;
@@ -63,8 +64,10 @@ wchar_t *_el_prompt = NULL;
 wchar_t **_el_compl_array = NULL;
 int _el_ctrl_c_pressed = FALSE;
 int rl_point = 0;
+int rl_end = 0;
 int rl_attempted_completion_over = 0;
 int rl_completion_append_character = ' ';
+int rl_readline_version = RL_READLINE_VERSION;
 int _el_compl_index = 0;
 int _el_n_compl = 0;
 int _el_prompt_len = 0;
