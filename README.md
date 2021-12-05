@@ -9,7 +9,7 @@ Paolo Tosco (*)
 
 *) e-mail: paolo.tosco.mail@gmail.com
 
-https://mingweditline.sourceforge.net/
+http://mingweditline.sourceforge.net/
 
 
 WinEditLine (formerly MinGWEditLine) is a BSD-licensed, open-source
