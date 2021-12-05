@@ -1,6 +1,7 @@
 # WinEditLine
 
 An EditLine API implementation for the native Windows Console.
+
 This BSD-licensed library provides command line editing and history
 functions similar to those found in GNU Readline.
 
