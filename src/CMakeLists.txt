@@ -53,8 +53,7 @@ add_executable(edit_test libedit_test.c)
 target_link_libraries(edit_test edit)
 add_executable(edit_test_dll libedit_test_dll.c)
 target_link_libraries(edit_test_dll edit)
-# install (TARGETS edit edit_test edit_test_dll
-#   DESTINATION "${CMAKE_INSTALL_PREFIX}/bin${LIB_SUFFIX}")
+
 install (TARGETS edit_static edit edit_test edit_test_dll
   LIBRARY DESTINATION lib${LIB_SUFFIX}
   ARCHIVE DESTINATION lib${LIB_SUFFIX}
