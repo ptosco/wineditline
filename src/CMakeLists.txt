@@ -61,11 +61,12 @@ install (TARGETS edit_static edit edit_test edit_test_dll
   PUBLIC_HEADER DESTINATION include
 )
 
-install(
-  FILES
-    $<TARGET_PDB_FILE:edit> 
-    $<TARGET_PDB_FILE:edit_test>
-    $<TARGET_PDB_FILE:edit_test_dll>
-  DESTINATION bin${LIB_SUFFIX}
-  OPTIONAL)
-
+if (MSVC)
+  install(
+    FILES
+      $<TARGET_PDB_FILE:edit> 
+      $<TARGET_PDB_FILE:edit_test>
+      $<TARGET_PDB_FILE:edit_test_dll>
+    DESTINATION bin${LIB_SUFFIX}
+    OPTIONAL)
+endif()
