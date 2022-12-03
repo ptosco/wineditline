@@ -5,7 +5,7 @@ el_globals.h
 is part of:
 
 WinEditLine (formerly MinGWEditLine)
-Copyright 2010-2021 Paolo Tosco <paolo.tosco.mail@gmail.com>
+Copyright 2010-2022 Paolo Tosco <paolo.tosco.mail@gmail.com>
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -36,11 +36,19 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 
+#ifndef _UNICODE
 #define _UNICODE
+#endif
+#ifndef UNICODE
 #define UNICODE
+#endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 const char *rl_readline_name = NULL;
-const char *rl_library_version = "2.207";
+const char *rl_library_version = "2.208";
 wchar_t *_el_print = NULL;
 wchar_t *_el_temp_print = NULL;
 size_t _el_temp_print_size = 0;
@@ -82,3 +90,7 @@ DWORD _el_prev_out_cm = 0;
 HANDLE _el_h_in = NULL;
 HANDLE _el_h_out = NULL;
 COORD _el_prev_size;
+
+#ifdef __cplusplus
+}
+#endif

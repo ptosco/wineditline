@@ -5,7 +5,7 @@ readline.h
 is part of:
 
 WinEditLine (formerly MinGWEditLine)
-Copyright 2010-2021 Paolo Tosco <paolo.tosco.mail@gmail.com>
+Copyright 2010-2022 Paolo Tosco <paolo.tosco.mail@gmail.com>
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -45,7 +45,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 these defines may be changed
 */
 #define DEFAULT_HISTORY_SIZE    200  /* default number of history entries */
-#define RL_READLINE_VERSION    0x020207  /* 0xMMmmpp where MM is major, mm minor, pp patch version */
+#define RL_READLINE_VERSION    0x020208  /* 0xMMmmpp where MM is major, mm minor, pp patch version */
 
 #ifdef __cplusplus
 extern "C" {

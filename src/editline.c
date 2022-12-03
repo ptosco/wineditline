@@ -5,7 +5,7 @@ editline.c
 is part of:
 
 WinEditLine (formerly MinGWEditLine)
-Copyright 2010-2021 Paolo Tosco <paolo.tosco.mail@gmail.com>
+Copyright 2010-2022 Paolo Tosco <paolo.tosco.mail@gmail.com>
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -35,8 +35,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 
+#ifndef _UNICODE
 #define _UNICODE
+#endif
+#ifndef UNICODE
 #define UNICODE
+#endif
 
 #include <editline/readline.h>
 #include <editline/wineditline.h>
@@ -911,6 +915,7 @@ char *readline(const char *prompt)
   char *ret_string = NULL;
   char readfile_buf;
   char have_cursor_x_start = 0;
+  int i = 0;
   int start = 0;
   int end = 0;
   int compl_pos = -1;
@@ -982,6 +987,15 @@ char *readline(const char *prompt)
   if (!rl_prompt) {
     _el_clean_exit();
     return NULL;
+  }
+  /*
+  If prompt starts with newline(s), ignore them
+  */
+  while (rl_prompt[i] == '\n') {
+    ++i;
+  }
+  if (i) {
+    memmove(rl_prompt, &rl_prompt[i], strlen(rl_prompt) - i + 1);
   }
   if (!_el_mb2w(rl_prompt, &_el_prompt)) {
     _el_clean_exit();
