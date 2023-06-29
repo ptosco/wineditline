@@ -1348,6 +1348,19 @@ char *readline(const char *prompt)
             break;
             
             /*
+            EOF
+            */
+            case 0x1A:  /* CTRL + Z */
+            if ((int)wcslen(_el_line_buffer) == 0) {
+              _el_insert_char(_T("^Z"), 2);
+              _el_clean_exit();
+              return NULL;
+            } else {
+              Beep( 800, 200 );
+            }
+            break;
+
+            /*
             delete word
             */
             case 0x17:  /* CTRL + W */
@@ -1386,6 +1399,21 @@ char *readline(const char *prompt)
                 _el_compl_index = 0;
                 compl_pos = -1;
                 if (_el_delete_char(VK_DELETE, line_len - rl_point)) {
+                  _el_clean_exit();
+                  return NULL;
+                }
+              }
+              break;
+            }
+
+            /*
+            delete until beginning of line
+            */
+            case 0x15:  /* CTRL + U */
+            if (ctrl) {
+              line_len = (int)wcslen(_el_line_buffer);
+              while (rl_point > 0) {
+                if (_el_delete_char(VK_BACK, 1)) {
                   _el_clean_exit();
                   return NULL;
                 }
